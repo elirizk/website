@@ -1,0 +1,94 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+    imagePath: string;
+    altText: string;
+}
+
+const { imagePath, altText} = Astro.props;
+// const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/blog/*.{jpeg,jpg,png,gif}')
+const images = {
+    'src/assets/eda_mig/hero.png': () => import('../assets/eda_mig/hero.png'),
+    'src/assets/eda_mig/df_desc.png': () => import('../assets/eda_mig/df_desc.png'),
+    'src/assets/eda_mig/graph8.png': () => import('../assets/eda_mig/graph8.png'),
+    'src/assets/eda_mig/graph9.png': () => import('../assets/eda_mig/graph9.png'),
+    'src/assets/eda_mig/graph4.png': () => import('../assets/eda_mig/graph4.png'),
+    'src/assets/eda_mig/graph12.png': () => import('../assets/eda_mig/graph12.png'),
+    'src/assets/eda_mig/graph5.png': () => import('../assets/eda_mig/graph5.png'),
+    'src/assets/eda_mig/graph7.png': () => import('../assets/eda_mig/graph7.png'),
+    'src/assets/eda_mig/graph10.png': () => import('../assets/eda_mig/graph10.png'),
+    'src/assets/eda_mig/graph11.png': () => import('../assets/eda_mig/graph11.png'),
+    'src/assets/eda_mig/graph6.png': () => import('../assets/eda_mig/graph6.png'),
+    'src/assets/eda_mig/graph2.png': () => import('../assets/eda_mig/graph2.png'),
+    'src/assets/eda_mig/graph3.png': () => import('../assets/eda_mig/graph3.png'),
+    'src/assets/eda_mig/graph1.png': () => import('../assets/eda_mig/graph1.png'),
+    'src/assets/joern/hero.png': () => import('../assets/joern/hero.png'),
+    'src/assets/joern/cpg.png': () => import('../assets/joern/cpg.png'),
+    'src/assets/joern/code1.png': () => import('../assets/joern/code1.png'),
+    'src/assets/joern/code2.webp': () => import('../assets/joern/code2.webp'),
+    'src/assets/joern/graphs.png': () => import('../assets/joern/graphs.png'),
+    'src/assets/joern/code3.webp': () => import('../assets/joern/code3.webp'),
+    'src/assets/logos/icon.png': () => import('../assets/logos/icon.png'),
+    'src/assets/ml_nid/corr_heatmap.png': () => import('../assets/ml_nid/corr_heatmap.png'),
+    'src/assets/ml_nid/decision_tree_2.png': () => import('../assets/ml_nid/decision_tree_2.png'),
+    'src/assets/ml_nid/decision_tree_1.png': () => import('../assets/ml_nid/decision_tree_1.png'),
+    'src/assets/ml_nid/pca_3d.png': () => import('../assets/ml_nid/pca_3d.png'),
+    'src/assets/ml_nid/pca_2d.png': () => import('../assets/ml_nid/pca_2d.png'),
+    'src/assets/ml_nid/class_count.png': () => import('../assets/ml_nid/class_count.png'),
+    'src/assets/ml_nid/loss1.png': () => import('../assets/ml_nid/loss1.png'),
+    'src/assets/ml_nid/loss2.png': () => import('../assets/ml_nid/loss2.png'),
+    'src/assets/ml_nid/same_srv_rate_vs_dst_host_same_srv_rate.png': () => import('../assets/ml_nid/same_srv_rate_vs_dst_host_same_srv_rate.png'),
+    'src/assets/ml_nid/network.jpg': () => import('../assets/ml_nid/network.jpg'),
+    'src/assets/ml_nid/heatmap.png': () => import('../assets/ml_nid/heatmap.png'),
+    'src/assets/ml_nid/hero2.jpg': () => import('../assets/ml_nid/hero2.jpg'),
+    'src/assets/ml_nid/pca_heatmap.png': () => import('../assets/ml_nid/pca_heatmap.png'),
+    'src/assets/headshot.png': () => import('../assets/headshot.png'),
+    'src/assets/headshot.jpg': () => import('../assets/headshot.jpg'),
+    'src/assets/blog/img4-1.jpg': () => import('../assets/blog/img4-1.jpg'),
+    'src/assets/blog/img3-1.jpg': () => import('../assets/blog/img3-1.jpg'),
+    'src/assets/blog/img9.jpg': () => import('../assets/blog/img9.jpg'),
+    'src/assets/blog/img8.jpg': () => import('../assets/blog/img8.jpg'),
+    'src/assets/blog/img5.jpg': () => import('../assets/blog/img5.jpg'),
+    'src/assets/blog/img4.jpg': () => import('../assets/blog/img4.jpg'),
+    'src/assets/blog/img6.jpg': () => import('../assets/blog/img6.jpg'),
+    'src/assets/blog/img7.jpg': () => import('../assets/blog/img7.jpg'),
+    'src/assets/blog/img3.jpg': () => import('../assets/blog/img3.jpg'),
+    'src/assets/blog/img2.jpg': () => import('../assets/blog/img2.jpg'),
+    'src/assets/blog/img1.jpg': () => import('../assets/blog/img1.jpg'),
+    'src/assets/blog/img10.jpg': () => import('../assets/blog/img10.jpg'),
+    'src/assets/ml_mig/plot7.png': () => import('../assets/ml_mig/plot7.png'),
+    'src/assets/ml_mig/plot6.png': () => import('../assets/ml_mig/plot6.png'),
+    'src/assets/ml_mig/plot4.png': () => import('../assets/ml_mig/plot4.png'),
+    'src/assets/ml_mig/plot5.png': () => import('../assets/ml_mig/plot5.png'),
+    'src/assets/ml_mig/hero.png': () => import('../assets/ml_mig/hero.png'),
+    'src/assets/ml_mig/plot1.png': () => import('../assets/ml_mig/plot1.png'),
+    'src/assets/ml_mig/fig1.png': () => import('../assets/ml_mig/fig1.png'),
+    'src/assets/ml_mig/fig3.png': () => import('../assets/ml_mig/fig3.png'),
+    'src/assets/ml_mig/plot2.png': () => import('../assets/ml_mig/plot2.png'),
+    'src/assets/ml_mig/plot3.png': () => import('../assets/ml_mig/plot3.png'),
+    'src/assets/ml_mig/fig2.png': () => import('../assets/ml_mig/fig2.png'),
+    'src/assets/ml_mig/plot10.png': () => import('../assets/ml_mig/plot10.png'),
+    'src/assets/ml_mig/plot11.png': () => import('../assets/ml_mig/plot11.png'),
+    'src/assets/ml_mig/mig.svg': () => import('../assets/ml_mig/mig.svg'),
+    'src/assets/ml_mig/mig.png': () => import('../assets/ml_mig/mig.png'),
+    'src/assets/ml_mig/plot8.png': () => import('../assets/ml_mig/plot8.png'),
+    'src/assets/ml_mig/plot9.png': () => import('../assets/ml_mig/plot9.png'),
+    'src/assets/int_fact/hero.avif': () => import('../assets/int_fact/hero.avif'),
+    'src/assets/crowdstrike/foundry.jpeg': () => import('../assets/crowdstrike/foundry.jpeg'),
+    'src/assets/teams/message-card.png': () => import('../assets/teams/message-card.png'),
+    'src/assets/teams/message-card-output.png': () => import('../assets/teams/message-card-output.png'),
+}
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+---
+
+<Image 
+    src={images[imagePath]()} 
+    alt={altText} 
+    quality={85}
+    widths={[390,780,1560]}
+    sizes="(max-width: 390px) 65vw,(max-width: 780px) 75vw, 85vw"  
+    format="webp"
+    loading="lazy"
+/>

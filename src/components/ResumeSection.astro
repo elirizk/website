@@ -1,0 +1,36 @@
+---
+const { title } = Astro.props;
+const isTitleEmpty = !title || title === '';
+---
+<section>
+    <div class={isTitleEmpty ? 'hidden' : ''}>
+        <div class="marker-shadow"></div>
+        <div class="marker-shadow"></div>
+        <div class="marker"></div>
+        <h2><span class="section-title"><span class="gt">>_</span> {title}</span></h2>
+    </div>
+    <div class="section-content">
+        <slot />
+    </div>
+</section>
+
+<style>
+    h2 {
+        padding-bottom: 0;
+    }
+    .section-content {
+        margin: 2em 0 2em 0.8em;
+        padding: 1.5em;
+        background-color: rgb(var(--white));
+        box-shadow: 0px 0px 20px rgb(var(--gray-light));
+        border-radius: 1em;
+    }
+    .hidden {
+        display: none;
+    }
+    @media (max-width: 780px) {
+        .section-content {
+            margin: 2em 0;
+        }
+    }
+</style>

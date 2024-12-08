@@ -1,0 +1,24 @@
+---
+const { id, options } = Astro.props;
+
+export const prerender = true;
+---
+
+<select id={id}>
+    {options.map(
+        (option) => <option class="option" value={option} selected={option === 2020}>
+                        {option}
+                    </option>
+    )}
+</select>
+
+<style>
+    select {
+        width: auto;
+        padding: 0.7em 1em;
+        margin: 0.5em;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+    }
+</style>

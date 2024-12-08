@@ -1,0 +1,74 @@
+---
+import ImageComponent from '../../components/ImageComponent.astro';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+import '../../styles/posts.css';
+export const prerender = false;
+const params = Astro.url.searchParams.get('tag');
+const posts = (await getCollection('projects')).filter((post) => {
+	if (params) {
+		return post.data.tags && post.data.tags.includes(params);
+	}
+	return true;
+}).
+map((posts) => (posts.data.pubDate = new Date(posts.data.pubDate), posts)).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+// posts.unshift(posts.pop());
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section>
+				{!params && (
+                    <div class="bg-white p-4 rounded-lg shadow-md mb-10">
+						<h2 class="text-2xl font-bold mb-2 pt-4 p-2">Welcome to my project portfolio page!</h2>
+						<p class="text-lg px-2">
+							Below, you will find a list of diverse projects I have worked on, ranging from training ML models to static code analysis. Each project includes a set of associated skills, represented as tags. Click on any tag to filter projects by that specific skill.
+						</p>
+                    </div>
+                )}
+			</section>
+			<section>
+				<ul>
+					{
+						posts.map((post) => (
+							<li class={params ? 'tag_filter' : ''}>
+								<a href={`/projects/${post.slug}/`}>
+									<ImageComponent width={720} height={360} imagePath={post.data.heroImage} altText="" />
+									<h4 class="title">{post.data.title}</h4>
+									<p class="date">
+										<FormattedDate date={post.data.pubDate} />
+									</p>
+								</a>
+								{
+									post.data.tags && (
+										<p class="tags">
+											{
+												post.data.tags.map((tag) => (
+													<a class={encodeURIComponent(tag)===encodeURIComponent(params) ? 'tag active' : 'tag'}
+														href={`/projects${encodeURIComponent(tag)===encodeURIComponent(params) ? '' : '?tag='+encodeURIComponent(tag)}`}>{tag}</a>
+												))
+											}
+										</p>
+									)								
+								}
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

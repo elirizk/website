@@ -1,0 +1,248 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ResumeSection  from '../../components/ResumeSection.astro';
+import ResumeSubsection from '../../components/ResumeSubsection.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import '../../styles/resume.css';
+export const prerender = true
+const skills = [
+  {
+	title: 'Domain Expertise',
+	items: ['Cybersecurity', 'Machine Learning', 'Data Analysis', 'Data Visualization', 'Feature Engineering'],
+  },
+  {
+	title: 'Programming Languages',
+	items: ['Python', 'Matlab', 'R', 'SQL', 'Java', 'Scala', 'C/C++'],
+  },
+  {
+	title: 'Machine Learning',
+	items: ['PyTorch', 'Scikit-learn', 'Tensorflow', 'Plotly', 'Pandas', 'Numpy', 'Matplotlib'],
+  },  {
+	title: 'Developer Tools',
+	items: ['Bash', 'Powershell', 'Git', 'Github', 'Linux', 'Azure']
+  },
+
+  {
+	title: 'Languages',
+	items: ['English', 'French', 'Arabic'],
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+		<article>
+		<div class="prose">
+			<div class="vertical-line"></div>
+			<h1 class="title">Elie Rizk - Resume</h1>
+			<hr/>
+			<ResumeSection>
+				Detail-oriented Computer Science graduate with a strong foundation in machine learning, data analysis, and cybersecurity. Currently working as a Cybersecurity Engineer at Teknologiia, where I have developed custom security integrations and built real-time monitoring systems. Proven expertise in developing and implementing machine learning algorithms, data visualization, and software solutions. Passionate about leveraging technology to solve real-world problems and improve existing systems.
+			</ResumeSection >
+
+			<ResumeSection  title="Skills & Languages">
+				{skills.map((skill) => (
+					<h3 class="title">{skill.title}</h3>
+					<div class="tags">
+					{skill.items.map((item) => (
+						['Developer Tools', 'Languages'].includes(skill.title) ? <div class="tag">{item}</div> : <a href={`/projects?tag=${encodeURIComponent(item)}`} class="tag">{item}</a>
+					))}
+					</div>
+				))}
+			</ResumeSection >
+
+			<ResumeSection  title="Education">
+				<ResumeSubsection 
+					title = "Master of Science in Computer Science"
+					institution ="University of Michigan, MI, United States"
+					date = "2022 - 2024"
+					logo = {{href:"https://umich.edu", src:"/logos/umich-logo.png"}}
+					descriptions = {[
+						"Pursued graduate studies in Computer Science with a focus on Machine Learning and Cybersecurity research",
+						"Recipient of a Fulbright scholarship and an Honor Scholar Award, GPA: 4.0"
+					]}
+				/>
+				<ResumeSubsection 
+					title = "Bachelor of Science in Computer Science"
+					institution ="American University of Beirut, Lebanon"
+					date = "2019 - 2022"
+					logo = {{href:"https://aub.edu", src:"/logos/aub-logo.jpg"}}
+					descriptions = {[
+						"Graduated with high distinction in Computer Science and a minor in Mathematics",
+						"Recipient of three competitive merit-based scholarships, GPA: 4.0"
+					]}
+				/>
+			</ResumeSection >
+
+			<ResumeSection  title="Work Experience">
+				<ResumeSubsection 
+					title = "Cybersecurity Engineer"
+					institution ="Teknologiia, Jounieh - Lebanon"
+					date = "August 2024 - Present"
+					logo = {{href:"https://teknologiia.com", src:"/logos/teknologiia.png"}}
+					descriptions = {[
+						"Developed custom security integrations, including a Teams extension for actionable alert management and an automated security incident reporting module, automating manual effort and improving response times",
+						"Built and deployed an Elastic stack from scratch with custom dashboards and dynamic ingest pipelines, enabling real-time monitoring of critical alerts and detailed asset tracking for clients",
+						"Conducted SOC analysis using the CrowdStrike Falcon console, monitoring and responding to detections to strengthen incident response processes"
+					]}
+				/>
+
+				<ResumeSubsection 
+					title = "Machine Learning Researcher"
+					institution ="University of Michigan, MI - United States"
+					date = "March 2023 - June 2024"
+					logo = {{href:"https://umich.edu", src:"/logos/umich-logo.png"}}
+					descriptions = {[
+						"Developed and implemented novel machine learning algorithms prioritizing privacy, fairness and robustness metrics while maintaining an accuracy threshold of 93%",
+						"Trained and customized various model architecture (Lenet, Resnet and EfficientNet) on large image datasets to benchmark training algorithms",
+						"Developed a static code analysis tool to identify vulnerabilities in PHP code using graph traversal algorithms achieving an 80% coverage of published vulnerabilities (CVEs) in popular web applications"
+					]}
+				/>
+				<ResumeSubsection 
+					title = "Software Developer"
+					institution ="American University of Beirut, Lebanon"
+					date = "July 2021 - August 2022"
+					logo = {{href:"https://aub.edu", src:"/logos/aub-logo.jpg"}}
+					descriptions = {[
+						"Automated the recruitment workflow of startups with relevant job candidates by developing and deploying a skill matchup software leading to a 3-fold reduction in recruitment time",
+						"Built the software backend using Django (Python) and deployed the application and database on Azure",
+						"Ensured that the web application follows the OWASP web security guidelines by performing regular risk assessment and compliance to security frameworks"
+					]}
+				/>
+				<!-- <ResumeSubsection 
+					title = "Full Stack Intern"
+					institution ="Connect Lebanon"
+					date = "July 2021 - August 2021"
+					logo = {{href:"http://www.connect.net.lb/", src:"/logos/connect-logo.png"}}
+					descriptions = {[
+						"Developed an end-to-end software project using HTML, CSS, Javascript, JQuery, and JSP",
+						"Incorporated the backend program logic with Java, JSF, and PostgreSQL to abide by customer requirements"
+					]}
+				/> -->
+			</ResumeSection >
+
+			<ResumeSection  title="Relevant Projects">
+				<ResumeSubsection 
+					title = "Holistic Framework for Trustworthy Machine Learning"
+					title_href = "https://dx.doi.org/10.7302/22653"
+					institution ="Master's Thesis"
+					date = "April 2024"
+					descriptions = {[
+						"Developed a novel framework for assessing and training holistically trustworthy machine learning models in the domains of utility, security, privacy and fairness",
+						"Reconciled the trade-offs by proposing multi-objective optimization algorithms to produce accurate, private, fair and robust models",
+					]}
+				/>
+				<ResumeSubsection 
+					title = "Machine Learning for Network Intrusion Detection"
+					title_href = "./projects?tag=NIDS"
+					institution ="Information Engineering"
+					date = "December 2023"
+					descriptions = {[
+						"Performed data visualization and feature engineering (PCA) to detect network intrusion with an accuracy of up to 99%",
+						"Trained various machine learning models (regression, decision trees and deep neural networks) ",
+					]}
+				/>
+				<ResumeSubsection 
+					title = "Predicting a Country’s Migration Rate"
+					title_href = "./projects?tag=Migration"
+					institution ="Data Science"
+					date = "April 2022"
+					descriptions = {[
+						"Developed and end-to-end ML project to predict country’s migration using multiple architectures (linear regression, decision tree, random forest, SVR, and deep neural network) achieving an R2 score of 98%",
+						"Coded Python and R scripts for data cleaning, exploratory data analysis and time series feature engineering to visualize the data on an interactive map"
+					]}
+				/>
+			</ResumeSection>
+
+			<ResumeSection  title="Certifications">
+				<ResumeSubsection 
+					title = "CompTIA Security+"
+					title_href = "./blog/post6/"
+					institution ="CompTIA"
+					date = "October 2023"
+					logo = {{href:"https://www.comptia.org/", src:"/logos/security+.jpg"}}
+					descriptions = {[
+						"Successfully passed the CompTIA Security+ certification exam",
+					]}
+				/>
+				<ResumeSubsection 
+					title = "Google Cybersecurity Certificate"
+					title_href = "./blog/post5/"
+					institution ="Google and Coursera"
+					date = "October 2023"
+					logo = {{href:"https://www.comptia.org/", src:"/logos/google.png"}}
+					descriptions = {[
+						"Received the Google Cybersecurity Professional Certificate on Coursera under the sponsorship of Amideast Lebanon",
+					]}
+				/>
+				<ResumeSubsection 
+					title = "Diversity, Equity, and Inclusion Certificate"
+					title_href = ""
+					institution ="University of Michigan"
+					date = "September 2023 - April 2024"
+					logo = {{href:"https://umich.edu", src:"/logos/umich-logo.png"}}
+					descriptions = {[
+						"Completed the DEI certificate program from the Rackham Graduate School of the University of Michigan",
+					]}
+				/>
+			</ResumeSection>
+			<ResumeSection  title="Awards">
+				<ResumeSubsection 
+					title = "Master's Honor Scholar Award"
+					title_href = ""
+					institution ="University of Michigan"
+					date = "March 2024"
+					logo = {{href:"https://umich.edu", src:"/logos/umich-logo.png"}}
+					descriptions = {[
+						"Received the Master's Honor Scholar Award for academic excellence in the Computer Science department",
+					]}
+				/>
+				<ResumeSubsection 
+					title = "Mark Sawaya Excellence Award"
+					title_href = ""
+					institution ="American University of Beirut"
+					date = "June 2022"
+					logo = {{href:"https://aub.edu", src:"/logos/aub-logo.jpg"}}
+					descriptions = {[
+						"Received the Mark Sawaya Excellence Award in Computer Science as the undergraduate Computer Science student with the highest cumulative GPA",
+					]}
+				/>
+			</ResumeSection>
+
+			<ResumeSection  title="Volunteering Experience">
+				<ResumeSubsection 
+					title = "Computer Science Instructor"
+					institution ="American University of Beirut, Lebanon"
+					date = "Jan 2022 - May 2022"
+					logo = {{href:"https://aub.edu", src:"/logos/aub-logo.jpg"}}
+					descriptions = {[
+						"Created and managed weekly training sessions and labs in computer literacy, Python programming, and basic Web Development for a group of 30 high school students"
+					]}
+				/>
+				<ResumeSubsection 
+					title = "First Responder and Emergency Dispatcher"
+					institution ="Lebanese Red Cross"
+					date = "Sep 2018 - August 2021"
+					logo = {{href:"https://redcross.org.lb/", src:"/logos/lrc-logo.svg"}}
+					descriptions = {[
+						"First responder in the Emergency Medical Service team in the Lebanese Red Cross",
+						"Emergency medical dispatcher for the 140 hotline of the Lebanese Red Cross",
+						"Provided first aid and emergency medical services to patients in various settings including road accidents, home emergencies, and public events",
+						"Managed a team of 5 as the head of the hygiene committee responsible for importing disinfecting agents and cleaning supplies"
+					]}
+				/>
+			</ResumeSection >
+		</div>
+		</article>
+		</main>
+		<Footer />
+	</body>
+</html>

@@ -1,0 +1,13 @@
+---
+const { src, alt } = Astro.props;
+---
+<a href={src} target="_blank">
+    <img src={src} alt={alt} />
+</a>
+
+<style>
+img {
+    width: 100%;
+    height: auto;
+}
+</style>
