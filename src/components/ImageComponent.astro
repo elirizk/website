@@ -77,7 +77,6 @@ const images = {
     'src/assets/ml_mig/plot9.png': () => import('../assets/ml_mig/plot9.png'),
     'src/assets/int_fact/hero.avif': () => import('../assets/int_fact/hero.avif'),
     'src/assets/crowdstrike/foundry.jpeg': () => import('../assets/crowdstrike/foundry.jpeg'),
-    'src/assets/teams/message-card.png': () => import('../assets/teams/message-card.png'),
     'src/assets/teams/message-card-output.png': () => import('../assets/teams/message-card-output.png'),
 }
 if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
