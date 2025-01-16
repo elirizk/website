@@ -24,26 +24,49 @@ export const prerender = true;
 					
 					<section class="business-info">
 						<h2>AI-Powered Communication Solutions</h2>
-						<p>Leveraging expertise in cybersecurity and machine learning to develop intelligent WhatsApp business integration solutions for automated customer interactions.</p>
+						<p>WhatsApp Business Integration Service in Development - Currently in Testing Phase</p>
 						
-						<div class="expertise-box">
-							<h3>Expert Background</h3>
+						<div class="compliance-box">
+							<h3>WhatsApp Business Policy Compliance</h3>
 							<ul>
-								<li>Master's in Computer Science from University of Michigan</li>
-								<li>Certified Security Professional (CompTIA Security+)</li>
-								<li>Experience in Machine Learning and Data Analysis</li>
-								<li>Specialized in Privacy-Preserving AI Solutions</li>
+								<li>Registered Business Profile with verified contact information</li>
+								<li>Strict opt-in/opt-out management system</li>
+								<li>24-hour message window compliance</li>
+								<li>Message template pre-approval process</li>
+								<li>Direct human escalation paths available</li>
 							</ul>
 						</div>
 
-						<div class="security-box">
-							<h3>Data Protection & Compliance</h3>
+						<div class="data-protection-box">
+							<h3>Data Protection & Privacy</h3>
 							<ul>
-								<li>End-to-end encryption for all communications</li>
-								<li>GDPR and CCPA compliant data handling</li>
-								<li>Regular security audits and monitoring</li>
-								<li>Strict adherence to Meta's Business Platform policies</li>
-								<li>Transparent data usage and retention policies</li>
+								<li>Explicit user consent management</li>
+								<li>No sharing of sensitive personal information</li>
+								<li>No health-related or regulated content</li>
+								<li>Clear privacy policy and data handling guidelines</li>
+								<li>Secure data storage and transmission</li>
+							</ul>
+						</div>
+
+						<div class="user-rights-box">
+							<h3>User Rights & Controls</h3>
+							<ul>
+								<li>Opt-in required before any communication</li>
+								<li>Clear opt-out instructions provided</li>
+								<li>Immediate response to blocking requests</li>
+								<li>Transparent data usage policies</li>
+								<li>User-controlled communication preferences</li>
+							</ul>
+						</div>
+
+						<div class="quality-box">
+							<h3>Quality Assurance</h3>
+							<ul>
+								<li>Regular compliance audits</li>
+								<li>Monitored message quality metrics</li>
+								<li>Approved message templates only</li>
+								<li>Human oversight of AI responses</li>
+								<li>Clear escalation procedures</li>
 							</ul>
 						</div>
 
@@ -61,6 +84,16 @@ export const prerender = true;
 								<li>Analytics Dashboard with Privacy Controls</li>
 								<li>Compliant Data Storage and Processing</li>
 								<li>Regular Security Assessment Reports</li>
+							</ul>
+						</div>
+
+						<div class="support-channels">
+							<h3>Support Channels</h3>
+							<ul>
+								<li>In-Chat Human Agent Transfer</li>
+								<li>Email Support: <a href="mailto:support@elirizk.me">support@elirizk.me</a></li>
+								<li>Web Support Portal</li>
+								<li>Phone Support (During Business Hours)</li>
 							</ul>
 						</div>
 
@@ -141,7 +174,7 @@ export const prerender = true;
 		background-color: #2d3748;
 	}
 
-	.expertise-box, .security-box {
+	.expertise-box, .security-box, .compliance-box, .data-protection-box, .user-rights-box, .quality-box {
 		background-color: #f8fafc;
 		border-left: 4px solid #4a5568;
 		border-radius: 4px;
@@ -153,12 +186,16 @@ export const prerender = true;
 		border-left-color: #2d3748;
 	}
 
-	.expertise-box ul, .security-box ul {
+	.data-protection-box { border-left-color: #2d3748; }
+	.user-rights-box { border-left-color: #1a202c; }
+	.quality-box { border-left-color: #718096; }
+
+	.expertise-box ul, .security-box ul, .compliance-box ul, .data-protection-box ul, .user-rights-box ul, .quality-box ul {
 		list-style-type: none;
 		padding: 0;
 	}
 
-	.expertise-box li, .security-box li {
+	.expertise-box li, .security-box li, .compliance-box li, .data-protection-box li, .user-rights-box li, .quality-box li {
 		margin: 0.5em 0;
 		padding-left: 1.5em;
 		position: relative;
@@ -173,6 +210,35 @@ export const prerender = true;
 
 	.security-box li:before {
 		content: "🔒";
+		position: absolute;
+		left: 0;
+	}
+
+	.compliance-box li:before { content: "✓"; }
+	.data-protection-box li:before { content: "🔒"; }
+	.user-rights-box li:before { content: "👤"; }
+	.quality-box li:before { content: "🔍"; }
+
+	.support-channels {
+		background-color: #edf2f7;
+		padding: 1.5em;
+		border-radius: 8px;
+		margin: 2em 0;
+	}
+
+	.support-channels ul {
+		list-style-type: none;
+		padding: 0;
+	}
+
+	.support-channels li {
+		margin: 0.5em 0;
+		padding-left: 1.5em;
+		position: relative;
+	}
+
+	.support-channels li:before {
+		content: "📞";
 		position: absolute;
 		left: 0;
 	}
