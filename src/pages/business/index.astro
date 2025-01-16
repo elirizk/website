@@ -1,0 +1,185 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE } from '../../consts';
+
+const title = "Business Services";
+const description = "AI-powered WhatsApp Business Integration Services";
+export const prerender = true;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${title} | ${SITE_TITLE}`} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<div class="prose">
+					<h1>{title}</h1>
+					<hr/>
+					
+					<section class="business-info">
+						<h2>AI-Powered Communication Solutions</h2>
+						<p>Leveraging expertise in cybersecurity and machine learning to develop intelligent WhatsApp business integration solutions for automated customer interactions.</p>
+						
+						<div class="expertise-box">
+							<h3>Expert Background</h3>
+							<ul>
+								<li>Master's in Computer Science from University of Michigan</li>
+								<li>Certified Security Professional (CompTIA Security+)</li>
+								<li>Experience in Machine Learning and Data Analysis</li>
+								<li>Specialized in Privacy-Preserving AI Solutions</li>
+							</ul>
+						</div>
+
+						<div class="security-box">
+							<h3>Data Protection & Compliance</h3>
+							<ul>
+								<li>End-to-end encryption for all communications</li>
+								<li>GDPR and CCPA compliant data handling</li>
+								<li>Regular security audits and monitoring</li>
+								<li>Strict adherence to Meta's Business Platform policies</li>
+								<li>Transparent data usage and retention policies</li>
+							</ul>
+						</div>
+
+						<div class="status-box">
+							<h3>Current Status</h3>
+							<p class="status">🔧 In Development - Testing Phase</p>
+						</div>
+
+						<div class="features">
+							<h3>Planned Features</h3>
+							<ul>
+								<li>24/7 Automated Response System with Privacy Focus</li>
+								<li>Secure Natural Language Processing</li>
+								<li>Custom Integration Solutions</li>
+								<li>Analytics Dashboard with Privacy Controls</li>
+								<li>Compliant Data Storage and Processing</li>
+								<li>Regular Security Assessment Reports</li>
+							</ul>
+						</div>
+
+						<div class="contact">
+							<h3>Contact</h3>
+							<p>For business inquiries or testing participation:</p>
+							<a href="mailto:eli@elirizk.me" class="contact-button">Get in Touch</a>
+						</div>
+					</section>
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.prose {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 1em;
+	}
+
+	.business-info {
+		margin-top: 2em;
+	}
+
+	.status-box {
+		background-color: #f5f5f5;
+		border-radius: 8px;
+		padding: 1.5em;
+		margin: 2em 0;
+	}
+
+	.status {
+		color: #666;
+		font-weight: 500;
+	}
+
+	.features {
+		margin: 2em 0;
+	}
+
+	.features ul {
+		list-style-type: none;
+		padding: 0;
+	}
+
+	.features li {
+		margin: 0.5em 0;
+		padding-left: 1.5em;
+		position: relative;
+	}
+
+	.features li:before {
+		content: "→";
+		position: absolute;
+		left: 0;
+		color: #666;
+	}
+
+	.contact {
+		margin: 2em 0;
+	}
+
+	.contact-button {
+		display: inline-block;
+		background-color: #4a5568;
+		color: white;
+		padding: 0.8em 1.5em;
+		border-radius: 4px;
+		text-decoration: none;
+		margin-top: 1em;
+		transition: background-color 0.2s ease;
+	}
+
+	.contact-button:hover {
+		background-color: #2d3748;
+	}
+
+	.expertise-box, .security-box {
+		background-color: #f8fafc;
+		border-left: 4px solid #4a5568;
+		border-radius: 4px;
+		padding: 1.5em;
+		margin: 2em 0;
+	}
+
+	.security-box {
+		border-left-color: #2d3748;
+	}
+
+	.expertise-box ul, .security-box ul {
+		list-style-type: none;
+		padding: 0;
+	}
+
+	.expertise-box li, .security-box li {
+		margin: 0.5em 0;
+		padding-left: 1.5em;
+		position: relative;
+	}
+
+	.expertise-box li:before {
+		content: "✓";
+		position: absolute;
+		left: 0;
+		color: #4a5568;
+	}
+
+	.security-box li:before {
+		content: "🔒";
+		position: absolute;
+		left: 0;
+	}
+
+	@media (max-width: 600px) {
+		.prose {
+			padding: 1em 0.5em;
+		}
+	}
+</style>
