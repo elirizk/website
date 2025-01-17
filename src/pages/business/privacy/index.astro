@@ -1,0 +1,176 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { SITE_TITLE } from '../../../consts';
+
+const title = "Privacy Policy";
+const description = "Privacy Policy for WhatsApp Business Integration Services";
+export const prerender = true;
+
+const lastUpdated = new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+});
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${title} | ${SITE_TITLE}`} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<div class="prose">
+					<h1>{title}</h1>
+					<p class="last-updated">Last Updated: {lastUpdated}</p>
+					<hr/>
+					
+					<section class="privacy-content">
+						<div class="section">
+							<h2>1. Introduction</h2>
+							<p>This Privacy Policy describes how we collect, use, and protect your information when you use our WhatsApp Business Integration Service. We are committed to protecting your privacy and handling your data in an open and transparent manner.</p>
+						</div>
+
+						<div class="section">
+							<h2>2. Information We Collect</h2>
+							<h3>2.1 WhatsApp Business Messages</h3>
+							<ul>
+								<li>Message content and metadata</li>
+								<li>Phone numbers (with explicit consent)</li>
+								<li>Message timestamps</li>
+								<li>User preferences and settings</li>
+							</ul>
+
+							<h3>2.2 Technical Information</h3>
+							<ul>
+								<li>Device information</li>
+								<li>Usage statistics</li>
+								<li>Error logs</li>
+							</ul>
+						</div>
+
+						<div class="section">
+							<h2>3. How We Use Your Information</h2>
+							<ul>
+								<li>To provide and maintain our service</li>
+								<li>To respond to your messages and requests</li>
+								<li>To improve our automated responses</li>
+								<li>To detect and prevent misuse</li>
+								<li>To comply with legal obligations</li>
+							</ul>
+						</div>
+
+						<div class="section">
+							<h2>4. Data Protection</h2>
+							<ul>
+								<li>End-to-end encryption for all messages</li>
+								<li>Secure data storage with industry-standard encryption</li>
+								<li>Regular security audits and monitoring</li>
+								<li>Access controls and authentication measures</li>
+							</ul>
+						</div>
+
+						<div class="section">
+							<h2>5. Your Rights</h2>
+							<ul>
+								<li>Right to access your data</li>
+								<li>Right to correct your data</li>
+								<li>Right to delete your data</li>
+								<li>Right to withdraw consent</li>
+								<li>Right to opt-out of communications</li>
+							</ul>
+						</div>
+
+						<div class="section">
+							<h2>6. Data Retention</h2>
+							<p>We retain your data only for as long as necessary to provide our services and comply with legal obligations. Messages are automatically deleted after 30 days unless required for compliance purposes.</p>
+						</div>
+
+						<div class="section">
+							<h2>7. Third-Party Services</h2>
+							<p>We use Meta's WhatsApp Business API and comply with their data handling requirements. We do not share your data with any other third parties unless required by law.</p>
+						</div>
+
+						<div class="section">
+							<h2>8. Contact Us</h2>
+							<p>For any privacy-related questions or requests, please contact our Data Protection Officer:</p>
+							<a href="mailto:privacy@elirizk.me" class="contact-button">privacy@elirizk.me</a>
+						</div>
+					</section>
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.prose {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 1em;
+	}
+
+	.last-updated {
+		color: #666;
+		font-style: italic;
+	}
+
+	.section {
+		margin: 2em 0;
+	}
+
+	.section h2 {
+		color: #2d3748;
+		border-bottom: 2px solid #edf2f7;
+		padding-bottom: 0.5em;
+	}
+
+	.section h3 {
+		color: #4a5568;
+		margin-top: 1.5em;
+	}
+
+	.section ul {
+		list-style-type: none;
+		padding: 0;
+	}
+
+	.section ul li {
+		margin: 0.5em 0;
+		padding-left: 1.5em;
+		position: relative;
+	}
+
+	.section ul li:before {
+		content: "•";
+		position: absolute;
+		left: 0;
+		color: #4a5568;
+	}
+
+	.contact-button {
+		display: inline-block;
+		background-color: #4a5568;
+		color: white;
+		padding: 0.8em 1.5em;
+		border-radius: 4px;
+		text-decoration: none;
+		margin-top: 1em;
+		transition: background-color 0.2s ease;
+	}
+
+	.contact-button:hover {
+		background-color: #2d3748;
+	}
+
+	@media (max-width: 600px) {
+		.prose {
+			padding: 1em 0.5em;
+		}
+	}
+</style>
